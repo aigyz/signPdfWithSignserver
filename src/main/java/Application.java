@@ -10,7 +10,7 @@ public class Application {
 
   public static void main(String[] args) {
     try {
-      ISigningAndValidation signServer = new SigningAndValidationWS("localhost", 8080, false);
+      ISigningAndValidation signServer = new SigningAndValidationWS("localhost", 8080);
 
       Path path = Paths.get("/home/laptop/temp/old.pdf");
       final byte[] bytes = Files.readAllBytes(path);
