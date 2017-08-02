@@ -10,7 +10,13 @@ public class Application {
 
   public static void main(String[] args) {
     try {
-      ISigningAndValidation signServer = new SigningAndValidationWS("localhost", 8080);
+
+      System.setProperty("javax.net.ssl.trustStore", "src/main/resources/keystore.jks");
+      System.setProperty("javax.net.ssl.trustStorePassword", "mypassword");
+//      System.setProperty("javax.net.ssl.trustAnchors", "/etc/ssl/certs/java/cacerts");
+
+      ISigningAndValidation signServer = new SigningAndValidationWS("localhost", 8443,
+          true);
 
       Path path = Paths.get("/home/laptop/temp/old.pdf");
       final byte[] bytes = Files.readAllBytes(path);
